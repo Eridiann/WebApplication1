@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Net.NetworkInformation;
 
 namespace WebApplication1.Models
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -24,6 +25,9 @@ namespace WebApplication1.Models
         public DbSet<Registros> Registros { get; set; }
     }
 }
+
+//DB Token
+//string, user@example.com, DCEa2023!
 
 //add-migration [migrationName]
 //update-database
